@@ -1,12 +1,12 @@
-# LSTM Text Generation
+# LSTM pour Génération de texte
 
-Implémentation de modèles de langage basés sur les réseaux LSTM (Long Short-Term Memory) avec PyTorch pour la génération de texte en français et en anglais.
+Implémentation de modèle de langage basés sur les réseaux LSTM (Long Short-Term Memory) avec PyTorch pour la génération de texte en français et en anglais.
 
 ## Description
 
 Ce projet explore la génération de texte automatique à travers l'apprentissage des structures linguistiques par des réseaux LSTM. Il propose deux implémentations distinctes :
 
-- **Modèle Français** : Entraîné sur 100 000 phrases du corpus Tatoeba
+- **Modèle Français** : Entraîné sur 100 000 phrases du corpus Tatoeba (fra_sentences.tsv)
 - **Modèle Anglais** : Entraîné sur le dataset WikiText avec optimisation de la perplexité
 
 ### Fonctionnalités
@@ -20,6 +20,7 @@ Ce projet explore la génération de texte automatique à travers l'apprentissag
 ## Architecture
 
 ### Modèle Français (`LSTMLanguageModel`)
+
 - **Embedding** : 256 dimensions
 - **Hidden layers** : 512 unités, 2 couches LSTM
 - **Vocabulaire** : ~16 400 mots (fréquence min = 2)
@@ -30,6 +31,7 @@ Ce projet explore la génération de texte automatique à travers l'apprentissag
   - Génération best-of-N avec scoring heuristique
 
 ### Modèle Anglais (`LSTMModel`)
+
 - **Embedding** : 400 dimensions
 - **Hidden layers** : 800 unités, 3 couches LSTM
 - **Vocabulaire** : ~20 400 mots (fréquence min = 5)
@@ -39,6 +41,7 @@ Ce projet explore la génération de texte automatique à travers l'apprentissag
 ## Résultats
 
 ### Modèle Français
+
 ```
 Exemples de génération :
 - "je suis" → "je suis désolé de ne pas te voir"
@@ -48,13 +51,14 @@ Exemples de génération :
 
 ### Modèle Anglais - Métriques d'évaluation
 
-| Dataset   | Diversité Ref | Diversité Pred | Longueur Moy |
-|-----------|---------------|----------------|--------------|
-| WikiNews  | 92.1%         | 90.5%          | 53.2 tokens  |
-| WikiText  | 91.8%         | 90.6%          | 52.8 tokens  |
-| Book      | 93.2%         | 90.5%          | 53.1 tokens  |
+| Dataset  | Diversité Ref | Diversité Pred | Longueur Moy |
+| -------- | ------------- | -------------- | ------------ |
+| WikiNews | 92.1%         | 90.5%          | 53.2 tokens  |
+| WikiText | 91.8%         | 90.6%          | 52.8 tokens  |
+| Book     | 93.2%         | 90.5%          | 53.1 tokens  |
 
 **Points forts** :
+
 - Excellente diversité (~90.5%) proche des textes de référence
 - Génération stable avec longueur cohérente
 - Robustesse entre différents domaines
@@ -62,12 +66,14 @@ Exemples de génération :
 ## Installation
 
 ### Prérequis
+
 ```bash
 Python 3.8+
 PyTorch 2.0+
 ```
 
 ### Dépendances
+
 ```bash
 pip install torch numpy matplotlib pandas
 ```
@@ -89,6 +95,7 @@ model.generate_text("je suis", max_length=15, temperature=0.7)
 ```
 
 **Options de génération** :
+
 - `max_length` : Nombre maximum de mots à générer
 - `temperature` : Contrôle de la créativité (0.5-1.0)
 - `top_k` : Restriction aux k mots les plus probables
@@ -111,6 +118,7 @@ generate_words(model, vocab, "The government announced",
 ### 3. Évaluation des résultats
 
 Consultez `LSTM_Evaluation_Results.ipynb` pour voir :
+
 - Graphiques de comparaison de diversité
 - Analyses statistiques de longueur de génération
 - Métriques détaillées par dataset
@@ -130,6 +138,7 @@ lstm-text-generation/
 ## Méthodologie
 
 ### Pipeline d'entraînement
+
 1. **Nettoyage du corpus** : Filtrage, tokenisation, normalisation
 2. **Construction du vocabulaire** : Tokens spéciaux (<BOS>, <EOS>, <PAD>, <UNK>)
 3. **Préparation des données** : Création de paires (input, target) avec padding
@@ -141,6 +150,7 @@ lstm-text-generation/
 5. **Génération** : Sampling avec température et top-k filtering
 
 ### Techniques de régularisation
+
 - Dropout (0.5) entre les couches LSTM
 - Weight decay (0.001)
 - Gradient clipping
@@ -149,6 +159,7 @@ lstm-text-generation/
 ## Exemples d'utilisation avancée
 
 ### Génération best-of-N (modèle français)
+
 ```python
 # Génère 10 candidats et sélectionne le meilleur selon des critères heuristiques
 model.generate_best("je suis", n_candidates=10, max_length=15,
@@ -156,6 +167,7 @@ model.generate_best("je suis", n_candidates=10, max_length=15,
 ```
 
 ### Interface de chat interactif
+
 ```python
 # Chatbot interactif avec vérification du vocabulaire
 chat_with_model_secure(loaded_model)
