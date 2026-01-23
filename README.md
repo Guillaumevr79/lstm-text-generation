@@ -1,8 +1,8 @@
 # LSTM Text Generation
 
-🤖 Implémentation de modèles de langage basés sur les réseaux LSTM (Long Short-Term Memory) avec PyTorch pour la génération de texte en français et en anglais.
+Implémentation de modèles de langage basés sur les réseaux LSTM (Long Short-Term Memory) avec PyTorch pour la génération de texte en français et en anglais.
 
-## 📋 Description
+## Description
 
 Ce projet explore la génération de texte automatique à travers l'apprentissage des structures linguistiques par des réseaux LSTM. Il propose deux implémentations distinctes :
 
@@ -11,13 +11,13 @@ Ce projet explore la génération de texte automatique à travers l'apprentissag
 
 ### Fonctionnalités
 
-✅ Architecture LSTM personnalisée avec régularisation avancée
-✅ Multiples stratégies de génération (greedy, sampling, top-k)
-✅ Contrôle de la température et pénalité de répétition
-✅ Évaluation complète avec métriques de diversité et perplexité
-✅ Interface interactive (chatbot) pour tester les générations
+- Architecture LSTM personnalisée avec régularisation avancée
+- Multiples stratégies de génération (greedy, sampling, top-k)
+- Contrôle de la température et pénalité de répétition
+- Évaluation complète avec métriques de diversité et perplexité
+- Interface interactive (chatbot) pour tester les générations
 
-## 🏗️ Architecture
+## Architecture
 
 ### Modèle Français (`LSTMLanguageModel`)
 - **Embedding** : 256 dimensions
@@ -36,7 +36,7 @@ Ce projet explore la génération de texte automatique à travers l'apprentissag
 - **Dropout** : 0.5
 - **Perplexité atteinte** : 93.94
 
-## 📊 Résultats
+## Résultats
 
 ### Modèle Français
 ```
@@ -59,7 +59,7 @@ Exemples de génération :
 - Génération stable avec longueur cohérente
 - Robustesse entre différents domaines
 
-## 🚀 Installation
+## Installation
 
 ### Prérequis
 ```bash
@@ -72,7 +72,7 @@ PyTorch 2.0+
 pip install torch numpy matplotlib pandas
 ```
 
-## 📖 Utilisation
+## Utilisation
 
 ### 1. Modèle Français
 
@@ -115,7 +115,7 @@ Consultez `LSTM_Evaluation_Results.ipynb` pour voir :
 - Analyses statistiques de longueur de génération
 - Métriques détaillées par dataset
 
-## 📁 Structure du Projet
+## Structure du Projet
 
 ```
 lstm-text-generation/
@@ -127,7 +127,7 @@ lstm-text-generation/
 └── README.md
 ```
 
-## 🔬 Méthodologie
+## Méthodologie
 
 ### Pipeline d'entraînement
 1. **Nettoyage du corpus** : Filtrage, tokenisation, normalisation
@@ -146,7 +146,7 @@ lstm-text-generation/
 - Gradient clipping
 - Vocabulaire filtré par fréquence
 
-## 🎯 Exemples d'utilisation avancée
+## Exemples d'utilisation avancée
 
 ### Génération best-of-N (modèle français)
 ```python
@@ -161,7 +161,7 @@ model.generate_best("je suis", n_candidates=10, max_length=15,
 chat_with_model_secure(loaded_model)
 ```
 
-## 📈 Améliorations Futures
+## Améliorations Futures
 
 - [ ] Augmenter la taille du corpus d'entraînement
 - [ ] Implémenter l'attention mechanism
@@ -170,24 +170,24 @@ chat_with_model_secure(loaded_model)
 - [ ] Fine-tuning sur des domaines spécifiques
 - [ ] Évaluation BLEU et ROUGE pour la qualité
 
-## 📝 Datasets Utilisés
+## Datasets Utilisés
 
 - **Tatoeba** : Phrases françaises (100 000 phrases)
 - **WikiText** : Articles Wikipédia anglais (20 741 phrases)
 - **Évaluation** : WikiNews, WikiText, BookCorpus
 
-## 🤝 Contribution
+## Contribution
 
 Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou une pull request.
 
-## 📄 Licence
+## Licence
 
 Ce projet est sous licence MIT.
 
-## 👤 Auteur
+## Auteur
 
 Guillaume - [Guillaumevr79](https://github.com/Guillaumevr79)
 
 ---
 
-⭐ Si ce projet vous est utile, n'hésitez pas à lui donner une étoile !
+Si ce projet vous est utile, n'hésitez pas à lui donner une étoile !
